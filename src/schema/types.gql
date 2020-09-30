@@ -1,0 +1,57 @@
+type GridItem {
+  thumbnailUrl: String!
+  subTitle: String!
+}
+
+type BasicCardData {
+  title: String!
+  thumbnailUrl: String!
+  textLink: String!
+  linkUrl: String!
+}
+
+type BasicCard {
+  component: String!
+  data: BasicCardData
+}
+
+type GridCardData {
+  title: String!
+  grid: [GridItem]!
+  textLink: String!
+  linkUrl: String!
+}
+
+type GridCard {
+  component: String!
+  data: GridCardData
+}
+
+type ActionCardData {
+  title: String!
+  textLink: String!
+  linkUrl: String!
+}
+
+type ActionCard {
+  component: String!
+  data: ActionCardData
+}
+
+type AdvertisementCardData {
+  thumbnailUrl: String!
+  linkUrl: String!
+}
+
+type AdvertisementCard {
+  component: String!
+  data: AdvertisementCardData
+}
+
+union Card = BasicCard | GridCard | ActionCard | AdvertisementCard
+
+type Query {
+  featuredItems: [Card!]!
+  discountedItems: [Card!]!
+  recommendedForYouItems: [Card!]!
+}
