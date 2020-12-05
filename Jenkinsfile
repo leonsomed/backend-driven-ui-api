@@ -1,10 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'node'
+    }
+
+  }
   stages {
     stage('Build') {
       steps {
         echo 'Build demo-app'
-        sh 'sh run_build_script.sh'
+        sh 'npm install'
       }
     }
 
